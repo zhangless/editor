@@ -1,0 +1,41 @@
+.uploadPic {
+  width: 100%;
+  height: auto;
+}
+
+.pictureBox {
+  display: flex;
+  align-items: stretch;
+  img {
+    // object-fit: cover; /* 或者选择 other options */
+    width: 200px;
+  }
+}
+
+.imageGrid {
+  display: grid;
+  gap: 10px; /* 调整网格项目之间的间隔 */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* 自适应列宽 */
+  /* 将超出的图片部分进行隐藏 */
+  overflow: hidden;
+  .picSeleted {
+    border: 3px cornflowerblue solid;
+  }
+}
+
+.imageGrid img {
+  width: 100%; /* 使图片充满其容器 */
+  // height: 100%; /* 有些图片可能无法充满容器，可以针对这种情况调整此属性或使用 `object-fit` */
+  object-fit: cover; /* 填充但是可能被剪切 */
+}
+
+.picBtnBox {
+  position: relative;
+  bottom: 40px;
+  z-index: 33333;
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}

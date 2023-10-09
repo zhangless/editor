@@ -1,0 +1,29 @@
+.main {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 0px 0px 20px;
+
+  &:hover {
+    .tips {
+      display: block;
+    }
+  }
+
+  .label {
+    color: rgba(29, 35, 46, 0.8);
+    text-align: left;
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  .tips {
+    display: none;
+    position: absolute;
+    bottom: -30px;
+    left: 78px;
+    font-size: 12px;
+    color: orange;
+  }
+}
