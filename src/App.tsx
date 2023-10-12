@@ -12,12 +12,12 @@ import LoginPage from "./pages/LoginPage";
 import useUserStore, { fetchUserInfo } from "src/store/userStore";
 import XzWebWatcher from "./point";
 
-new XzWebWatcher({
-  watchPerformance: true,
-  watchEvent: true,
-  watcherHeatmap: true,
-  requestUrl: "http://api.ricedog.top/api/point",
-});
+// new XzWebWatcher({
+//   watchPerformance: true,
+//   watchEvent: true,
+//   watcherHeatmap: true,
+//   requestUrl: "http://api.ricedog.top/api/point",
+// });
 
 export default function App() {
   useEffect(() => {
@@ -29,6 +29,8 @@ export default function App() {
   if (!isLogin) {
     return <LoginPage />;
   }
+
+  // console.log("🚀 ～ file: App.tsx:34 ～ App ～ process:", process);
 
   const router = createBrowserRouter(
     createRoutesFromElements(

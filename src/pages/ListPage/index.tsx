@@ -120,7 +120,8 @@ export default function ListPage() {
     fresh();
   }, [isLogin]);
 
-  const editUrl = (item: ListItem) => `/?id=${item.id}&type=${item.type}`;
+  const editUrl = (item: ListItem) =>
+    `/?id=${item.id}&type=${item.type}&publish=${item.publish || false}`;
   const columns = [
     {
       title: "id",
@@ -176,22 +177,13 @@ export default function ListPage() {
             {/* 这里应该是发布之后才可以查看 */}
             {item.type === "content" && (
               <>
-                {item.publish === false ? (
+                {!item.publish ? (
                   <>
-                    <a
-                      target="_blank"
-                      href={"http://builder.codebus.tech?id=" + id + "&preview"}
-                    >
-                      线下预览查看（切移动端）
-                    </a>
                     <Button onClick={() => publish(id)}>发布</Button>
                   </>
                 ) : (
                   <>
-                    <a
-                      target="_blank"
-                      href={"http://builder.codebus.tech?id=" + id}
-                    >
+                    <a target="_blank" href={"http://show.ricedog.top/" + id}>
                       线上查看（切移动端）
                     </a>
                     <Button onClick={() => unpublish(id)}>下架</Button>

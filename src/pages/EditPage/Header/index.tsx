@@ -52,10 +52,10 @@ export default function Header() {
 
   console.log("🚀 ～ file: index.tsx:14 ～ Header ～ assembly:", cmps);
 
-  unstable_usePrompt({
-    when: !hasSavedCanvas,
-    message: "离开后数据将不会被保存，确认要离开吗?",
-  });
+  // unstable_usePrompt({
+  //   when: !hasSavedCanvas,
+  //   message: "离开后数据将不会被保存，确认要离开吗?",
+  // });
 
   const navigate = useNavigate();
 
@@ -165,7 +165,7 @@ export default function Header() {
           保存
         </Button>
         <Button onClick={saveAndPreview}>预览</Button>
-        <Button onClick={saveAndDownload}>下载图片</Button>
+        {/* <Button onClick={saveAndDownload}>下载图片</Button> */}
       </Space>
     </div>
   );

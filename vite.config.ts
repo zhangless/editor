@@ -3,32 +3,40 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import react from "@vitejs/plugin-react";
 import path from 'path'
 
-// https://vitejs.dev/config/
-export default defineConfig({
-  server: {
-    proxy: {
-      "/api": "http://api.ricedog.top",
-      "/static": "http://api.ricedog.top",
+const config = () => {
+  console.log(process.env.NODE_ENV)
+  return {
+    server: {
+
+      proxy: {
+        "/api": process.env.NODE_ENV !== 'production' ? "http://localhost:7002" : 'http://api.ricedog.top',
+        "/static": process.env.NODE_ENV !== 'production' ? "http://localhost:7002" : "http://api.ricedog.top",
+      },
+
     },
 
-  },
-
-  plugins: [tsconfigPaths(), react()],
+    plugins: [tsconfigPaths(), react()],
 
 
-  build: {
-    assetsDir: 'assets',
-  },
-
-  css: {
-    modules: {
-      hashPrefix: "prefix",
+    build: {
+      assetsDir: 'assets',
     },
 
-    preprocessorOptions: {
-      less: {
-        javascriptEnabled: true,
+
+    css: {
+      modules: {
+        hashPrefix: "prefix",
+      },
+
+      preprocessorOptions: {
+        less: {
+          javascriptEnabled: true,
+        },
       },
     },
-  },
-});
+  }
+}
+// https://vitejs.dev/config/
+export default defineConfig(config());
+
+

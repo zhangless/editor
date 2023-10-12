@@ -8,15 +8,13 @@ import { useEffect } from "react";
 
 export default function EditPage() {
   useEffect(() => {
-    window.addEventListener("beforeunload", function (e) {
-      // 取消事件的默认行为
-      e.preventDefault();
-
-      // 在确认对话框中显示一条消息
-      e.returnValue = "";
-    });
-
-    return () => {};
+    // window.addEventListener("beforeunload", function (e) {
+    //   // 取消事件的默认行为
+    //   e.preventDefault();
+    //   // 在确认对话框中显示一条消息
+    //   e.returnValue = "";
+    // });
+    // return () => {};
   }, []);
   return (
     <Layout className={styles.main}>
